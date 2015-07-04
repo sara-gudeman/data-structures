@@ -32,7 +32,6 @@ HashTable.prototype.retrieve = function(k){
   }
   // return value at index 1
 
-
   // if there are more than one tuples
   if(Array.isArray(arr[0])){
   // iterate over each tuple key,
@@ -62,4 +61,7 @@ HashTable.prototype.remove = function(k){
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ insert: linear (because calls retrieve)
+ retrieve: linear (for loop)
+ remove: constant
  */
