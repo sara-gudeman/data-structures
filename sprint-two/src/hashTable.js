@@ -6,7 +6,14 @@ var HashTable = function(){
 HashTable.prototype.insert = function(k, v){
   var i = getIndexBelowMaxForKey(k, this._limit);
   var value = [];
-  value.push(k, v);
+  if (this.retrieve(k)) {
+    var storedArr = this._storage.get(i);
+    var newArr = [k, v];
+    value.push(storedArr, newArr);
+  } else {
+    value.push(k, v);
+  }
+  
   this._storage.set(i, value);
 };
 
@@ -24,7 +31,6 @@ HashTable.prototype.remove = function(k){
   var i = getIndexBelowMaxForKey(k, this._limit);
      this._storage.set(i, null);
 };
-
 
 
 /*
