@@ -13,12 +13,16 @@ HashTable.prototype.insert = function(k, v){
 HashTable.prototype.retrieve = function(k){
   var i = getIndexBelowMaxForKey(k, this._limit);
   var arr = this._storage.get(i);
-  return arr[1];
+  if(arr){
+    return arr[1];
+  }else{
+    return null;
+  }
 };
 
 HashTable.prototype.remove = function(k){
   var i = getIndexBelowMaxForKey(k, this._limit);
-  this._storage.get(i) = null;
+     this._storage.set(i, null);
 };
 
 
