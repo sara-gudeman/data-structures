@@ -21,6 +21,16 @@ var BinarySearchTree = function(value){
 
 	searchTree.contains = function(val) {
 		// if searchTree value is === value
+		console.log("ran")
+		if(searchTree.value === val){
+			return true;
+		}else if(searchTree.left !== null && searchTree.value > val){
+			return searchTree.left.contains(val);
+		}else if(searchTree.right !== null && searchTree.value < val){
+			return searchTree.right.contains(val)
+		}else{
+			return false;
+		}
 		// then value exists
 		// -- return?
 		// else if right is not null & value > searchTree value
